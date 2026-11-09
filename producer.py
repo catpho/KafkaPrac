@@ -11,6 +11,7 @@ def delivery_report(err, msg):
         print(f"Delivery failed: {err}")
     else:
         print(f"Delivered {msg.value().decode('utf-8')}")
+        print(f"Delivered to {msg.topic()} : partition {msg.partition()} : at offset {msg.offset()}")
 
 order = {
     "order_id": str(uuid.uuid4()),
